@@ -2,6 +2,7 @@ package ExtentReports;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import java.io.File;
 
@@ -34,7 +35,7 @@ public class ExtentReportManager {
         extentSparkReporter.config().setDocumentTitle("Extent Report");
 
         // Optional: Set the theme of the report (e.g., DARK or STANDARD)
-        // extentSparkReporter.config().setTheme(Theme.DARK);
+         extentSparkReporter.config().setTheme(Theme.DARK);
 
         // Set the name/title displayed inside the report
         extentSparkReporter.config().setReportName("Ndosi Automation");

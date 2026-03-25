@@ -11,7 +11,8 @@ target/
 *.iws
 *.iml
 *.ipr
-
+Screenshots/
+Reports/
 ### Eclipse ###
 .apt_generated
 .classpath

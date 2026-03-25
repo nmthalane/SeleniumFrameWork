@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Declares the TestNG DTD (Document Type Definition)
+     This tells TestNG how to validate the structure of this XML file -->
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!-- Root tag for the TestNG suite
+     "name" is just a label for your entire test run -->
 <suite name="All Test Suite">
+
+    <!-- Register listeners that will monitor test execution -->
     <listeners>
+
+        <!-- This links your custom listener class to TestNG
+             TestNG will automatically call methods like:
+             onTestStart(), onTestFailure(), etc. from this class -->
         <listener class-name="ExtentReports.Listener"></listener>
+
     </listeners>
+
+    <!-- Defines a test group within the suite
+         You can have multiple <test> tags in one suite -->
     <test name="Ndosi Tests">
+
+        <!-- Specifies which test classes to run -->
         <classes>
+
+            <!-- Fully qualified class name of the test class
+                 TestNG will execute all @Test methods inside this class -->
             <class name="Tests.NdosiTests"></class>
+
         </classes>
+
     </test>
 
 </suite>

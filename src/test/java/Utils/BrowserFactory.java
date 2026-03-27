@@ -1,5 +1,6 @@
 package Utils;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,6 +25,7 @@ public class BrowserFactory {
                 options.addArguments("--headless=new");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--window-size=1920,1080");
             }
 
             driver = new ChromeDriver(options);
@@ -55,6 +57,8 @@ public class BrowserFactory {
 
         if (!headless) {
             driver.manage().window().maximize();
+        } else {
+            driver.manage().window().setSize(new Dimension(1920, 1080));
         }
 
         driver.get(url);

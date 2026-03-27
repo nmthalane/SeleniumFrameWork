@@ -17,7 +17,7 @@ public class HomePage {
     @FindBy(id = "overview-section")
     WebElement verify_homePage;
 
-    @FindBy(xpath = "//button[.//span[text()='Login']]")
+    @FindBy(xpath = "//button[contains(.,'Login')]")
     WebElement loginButton;
 
     public HomePage(WebDriver driver) {

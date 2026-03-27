@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -16,7 +17,7 @@ public class HomePage {
     @FindBy(id = "overview-section")
     WebElement verify_homePage;
 
-    @FindBy(xpath = "//*[@id=\"app-root\"]/nav/div[1]/div[3]/button/span[2]")
+    @FindBy(xpath = "//button[.//span[text()='Login']]")
     WebElement loginButton;
 
     public HomePage(WebDriver driver) {
@@ -24,7 +25,7 @@ public class HomePage {
     }
 
     public void clickLoginButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(loginButton));
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(loginButton));
         loginButton.click();
     }
 

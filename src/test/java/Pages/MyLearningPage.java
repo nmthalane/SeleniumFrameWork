@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+
 public class MyLearningPage {
 
     WebDriver driver;
@@ -27,6 +29,7 @@ public class MyLearningPage {
     }
 
     public void clickLearningMaterials() {
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(learningMaterial_dropDown_xpath));
         learningMaterial_dropDown_xpath.click();
         learningMaterial_option_xpath.click();
     }

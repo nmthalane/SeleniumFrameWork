@@ -8,7 +8,7 @@ public class NdosiTests extends Base {
 
     public void verifyHomePageIsDisplayed() {
         homePage.verifyHomePageIsDisplayed();
-        takeScreenshots.takeSnapShots(driver, "HomePageScreenshot001");
+        //takeScreenshots.takeSnapShots(driver, "HomePageScreenshot001");
     }
 
     @Test(dependsOnMethods = "verifyHomePageIsDisplayed")
@@ -45,11 +45,6 @@ public class NdosiTests extends Base {
     @Test(dependsOnMethods = "clickLearningMaterials")
     public void verifyPracticeSectionIsDisplayed() throws InterruptedException {
         myLearningPage.verifyTestingPracticeIsDisplayed();
-    }
-
-    @AfterTest
-    public void closeBrowser() {
-        driver.quit();
     }
 
 }

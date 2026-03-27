@@ -7,15 +7,36 @@ import Utils.BrowserFactory;
 import Utils.TakeScreenshots;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 public class Base {
 
+    protected WebDriver driver;
+    protected HomePage homePage;
+    protected LoginPage loginPage;
+    protected MyLearningPage myLearningPage;
+    protected TakeScreenshots takeScreenshots;
+
     BrowserFactory browserFactory = new BrowserFactory();
 
-    final WebDriver driver = browserFactory.startBrowser("chrome","https://ndosisimplifiedautomation.vercel.app/",false);
+    @BeforeClass
+    public void setUp() {
 
-    HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-    LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-    MyLearningPage myLearningPage = PageFactory.initElements(driver, MyLearningPage.class);
-    TakeScreenshots takeScreenshots = new TakeScreenshots();
+        boolean headless = Boolean.parseBoolean(System.getProperty("headless", "true"));
+
+        driver = browserFactory.startBrowser("chrome","https://ndosisimplifiedautomation.vercel.app/",headless);
+
+        homePage = PageFactory.initElements(driver, HomePage.class);
+        loginPage = PageFactory.initElements(driver, LoginPage.class);
+        myLearningPage = PageFactory.initElements(driver, MyLearningPage.class);
+        takeScreenshots = new TakeScreenshots();
+    }
+
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }

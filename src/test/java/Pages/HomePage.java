@@ -13,7 +13,7 @@ public class HomePage {
 
     WebDriver driver;
     //Verify that the home page is displayed
-    @FindBy(id = "overview-hero")
+    @FindBy(id = "overview-section")
     WebElement verify_homePage;
 
     @FindBy(xpath = "//*[@id=\"app-root\"]/nav/div[1]/div[3]/button/span[2]")
@@ -29,7 +29,7 @@ public class HomePage {
     }
 
     public void verifyHomePageIsDisplayed() {
-
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(verify_homePage));
         verify_homePage.isDisplayed();
     }
 

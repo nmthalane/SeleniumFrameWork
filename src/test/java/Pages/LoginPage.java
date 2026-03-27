@@ -25,22 +25,25 @@ public class LoginPage {
     @FindBy(id = "login-submit")
     WebElement submitButton;
 
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
 
-    public void verifyLoginPageIsDisplayed(){
+    public void verifyLoginPageIsDisplayed() {
         new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(verifyLoginHeading));
         verifyLoginHeading.isDisplayed();
 
     }
 
-    public void enterEmail(String email){
+    public void enterEmail(String email) {
         emailField.sendKeys(email);
     }
 
-    public void enterPassword(String password){
+    public void enterPassword(String password) {
         passwordField.sendKeys(password);
     }
 
-    public void clickLoginButton(){
+    public void clickLoginButton() {
         submitButton.click();
     }
 

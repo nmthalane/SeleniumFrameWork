@@ -17,3 +17,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+
+      - name: Build and Run Tests
+        run: mvn clean test

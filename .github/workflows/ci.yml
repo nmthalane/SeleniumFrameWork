@@ -20,3 +20,9 @@ jobs:
 
       - name: Build and Run Tests
         run: mvn clean test -e
+
+      - name: Upload Extent Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: extent-report
+          path: Reports/ExtentReport.html

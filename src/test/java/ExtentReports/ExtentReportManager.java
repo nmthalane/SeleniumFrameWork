@@ -24,7 +24,12 @@ public class ExtentReportManager {
 
         // Create a new instance of ExtentReports
         extentReports = new ExtentReports();
-
+//        String reportPath = System.getProperty("user.dir") + "/Reports/ndosiAutomation.html";
+//
+//        File reportFolder = new File(System.getProperty("user.dir") + "/Reports");
+//        if (!reportFolder.exists()) {
+//            reportFolder.mkdirs();
+//        }
         // Create a new Spark Reporter and pass the report file location
         extentSparkReporter = new ExtentSparkReporter(new File(reportDir));
 

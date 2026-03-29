@@ -29,7 +29,7 @@ public class MyLearningPage {
     }
 
     public void clickLearningMaterials() {
-        new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(learningMaterial_dropDown_xpath));
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(learningMaterial_dropDown_xpath));
         learningMaterial_dropDown_xpath.click();
         learningMaterial_option_xpath.click();
     }

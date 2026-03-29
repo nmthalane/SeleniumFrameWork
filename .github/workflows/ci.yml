@@ -37,3 +37,16 @@ jobs:
         with:
           name: extent-report
           path: Reports/ndosiAutomation.html
+
+      - name: Send Email with Extent Report
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Automation Test Results - Extent Report
+          to: mthalane_n@yahoo.com
+          from: ${{ secrets.EMAIL_USERNAME }}
+          body: Hi, please find attached the latest Extent Report.
+          attachments: Reports/ndosiAutomation.html
